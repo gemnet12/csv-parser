@@ -1,0 +1,9 @@
+{
+    "name": "b1test/b1test",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Programm\\": "programm/"
+        }
+    }
+}
