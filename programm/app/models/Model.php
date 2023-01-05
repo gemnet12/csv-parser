@@ -11,7 +11,7 @@ abstract class Model
 {
     readonly public array $columns;
 
-    readonly protected string $tableName;
+    readonly public string $tableName;
     
     /**
      * putData

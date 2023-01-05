@@ -20,6 +20,6 @@ class LoadedFiles extends Model
             'DATE'
         ],
         
-        readonly protected string $tableName = 'files'
+        readonly public string $tableName = 'files'
     ) {}
 }

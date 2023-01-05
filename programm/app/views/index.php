@@ -9,9 +9,9 @@
         <a href="/show-department">Show department</a>
     </li>
     <li>
-        <a href="/show-emloyee">Show employee</a>
+        <a href="/show-employee">Show employee</a>
     </li>
     <li>
-        <a href="/show-files">List</a>
+        <a href="/show-files">Show loaded tables</a>
     </li>
 </ul>

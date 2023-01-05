@@ -13,7 +13,7 @@ Router::setRoute('index', [
 
 Router::setRoute('department', [
     'url' => '/department',
-    'action' => 'department',
+    'action' => 'loadTable',
     'controller' => DepartmentController::class
 ]);
 
@@ -25,7 +25,7 @@ Router::setRoute('load-department', [
 
 Router::setRoute('employee', [
     'url' => '/employee',
-    'action' => 'employee',
+    'action' => 'loadTable',
     'controller' => EmployeeController::class
 ]);
 
@@ -36,7 +36,7 @@ Router::setRoute('load-employee', [
 ]);
 
 Router::setRoute('show-employee', [
-    'url' => '/show-emloyee',
+    'url' => '/show-employee',
     'action' => 'show',
     'controller' => EmployeeController::class
 ]);

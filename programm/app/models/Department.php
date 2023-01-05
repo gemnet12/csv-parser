@@ -19,6 +19,6 @@ class Department extends Model
             'NAME_DEPARTMENT'
         ],
         
-        readonly protected string $tableName = 'department'
+        readonly public string $tableName = 'department'
     ) {}
 }

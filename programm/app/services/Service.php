@@ -56,6 +56,16 @@ abstract class Service
     {
         return $this->model->columns;
     }
+
+    /**
+     * getColumns
+     *
+     * @return string
+     */
+    public function getTableName(): string
+    {
+        return $this->model->tableName;
+    }
     
     /**
      * getCsvData

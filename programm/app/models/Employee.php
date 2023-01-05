@@ -27,6 +27,6 @@ class Employee extends Model
             'PASSWORD'
         ],
         
-        readonly protected string $tableName = 'employee'
+        readonly public string $tableName = 'employee'
     ) {}
 }

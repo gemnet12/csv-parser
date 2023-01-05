@@ -22,23 +22,13 @@ abstract class Controller
     }
     
     /**
-     * Show form department
+     * Show form
      *
      * @return void
      */
-    public function department(): void
+    public function loadTable(): void
     {
-        $this->render('department', ['name' => 'department']);
-    }
-    
-    /**
-     * emplyee
-     *
-     * @return void
-     */
-    public function employee(): void
-    {
-        $this->render('employee', ['name' => 'employee']);
+        $this->render('form', ['name' => $this->service->getTableName()]);
     }
     
     /**
@@ -50,17 +40,7 @@ abstract class Controller
     {
         $file = $_FILES['csv'];
         $this->service->pushData($file);
-        $this->redirect('/');
-    }
-    
-    /**
-     * List
-     *
-     * @return void
-     */
-    public function list(): void
-    {
-
+        $this->redirect('/show-' . $this->service->getTableName());
     }
     
     /**
