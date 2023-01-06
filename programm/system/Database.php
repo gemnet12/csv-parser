@@ -32,7 +32,7 @@ class Database
     }
     
     /**
-     * getInstance
+     * Get Instance
      *
      * @return Database
      */
@@ -67,7 +67,13 @@ class Database
             exit;
         }
     }
-
+    
+    /**
+     * Select All
+     *
+     * @param  string $tableName
+     * @return array
+     */
     public static function selectAll(string $tableName): array
     {
         $instance = self::getInstance();

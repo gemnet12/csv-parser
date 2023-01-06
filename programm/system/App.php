@@ -5,7 +5,7 @@ namespace Programm\System;
 /**
  * App
  */
-class App
+final class App
 {
     private Router $router; 
     

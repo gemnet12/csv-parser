@@ -70,4 +70,3 @@ Router::setRoute('download-department', [
     'action' => 'download',
     'controller' => DepartmentController::class
 ]);
-

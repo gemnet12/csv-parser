@@ -1,3 +1,11 @@
+<?php
+
+/**
+ * @var string $template
+ */
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

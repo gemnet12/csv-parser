@@ -10,6 +10,8 @@ class Employee extends Model
     /**
      * __construct
      *
+     * @param array $columns
+     * @param string $tableName
      * @return void
      */
     public function __construct(

@@ -13,6 +13,7 @@ class EmployeeService extends Service
     /**
      * __construct
      *
+     * @param Model $model
      * @return void
      */
     public function __construct(

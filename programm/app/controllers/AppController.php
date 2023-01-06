@@ -6,6 +6,9 @@ use Programm\App\Controllers\Controller;
 use Programm\App\Services\AppService;
 use Programm\App\Services\Service;
 
+/**
+ * AppController
+ */
 class AppController extends Controller
 {    
     /**
