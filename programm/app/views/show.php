@@ -1,3 +1,13 @@
+<?php 
+
+/**
+ * @var string $name
+ * @var array $columns
+ * @var array $rows
+ */
+
+?>
+
 <table>
     <tr>
         <?php foreach ($columns as $column) : ?>
@@ -12,3 +22,4 @@
         </tr>
     <?php endforeach; ?>
 </table>
+<a href="download-<?= $name ?>">Download</a>

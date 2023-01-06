@@ -1,3 +1,7 @@
 #vendor files
 
 vendor
+
+#config files
+
+programm/bootstrap/env.php

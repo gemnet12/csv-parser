@@ -21,10 +21,10 @@ class Database
      */
     private function __construct()
     {
-        $dbHost = 'localhost';
-        $dbName = 'dev';
-        $dbUser = 'user';
-        $dbPassword = 'password';
+        $dbHost = getenv('DB_HOST');
+        $dbName = getenv('DB_NAME');
+        $dbUser = getenv('DB_USER');
+        $dbPassword = getenv('DB_PASSWORD');
 
         $this->dbConnection = new PDO('mysql:host=' . $dbHost . ';dbname=' . $dbName . ';charset=utf8',
         $dbUser,

@@ -23,16 +23,5 @@ CREATE TABLE employee (
 
 CREATE TABLE files (
     NAME VARCHAR(50),
-    DATE DATETIME DEFAULT CURRENT_TIMESTAMP,
+    DATE DATETIME DEFAULT CURRENT_TIMESTAMP
 );
-
-
-INSERT INTO department (XML_ID, PARENT_XML_ID, NAME_DEPARTMENT) VALUES
- ('OU002', '', 'Коммерческий '),
- ('OU003', 'OU003', 'департамент')
- ;
-
-INSERT INTO department VALUES (XML_ID = 'OU001', PARENT_XML_ID = '', NAME_DEPARTMENT = 'Коммерческий департамент')
-
-CREATE DATABASE dev
-      CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;

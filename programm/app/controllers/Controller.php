@@ -52,8 +52,36 @@ abstract class Controller
     {
         $this->render('show', [
             'columns' => $this->service->getColumns(),
-            'rows' => $this->service->getData()
+            'rows' => $this->service->getData(),
+            'name' => $this->service->getTableName()
         ]);
+    }
+    
+    /**
+     * Download
+     *
+     * @return void
+     */
+    public function download(): void
+    {
+        $filePath = $this->service->createTempCsvFile();
+        $fileName = basename($filePath);
+        
+        if (file_exists($fileName)) {
+            header('Content-Description: File Transfer');
+            header('Content-Type: application/octet-stream');
+            header('Content-Disposition: attachment; filename=' . $fileName);
+            header('Content-Transfer-Encoding: binary');
+            header('Expires: 0');
+            header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+            header('Pragma: public');
+            header('Content-Length: ' . filesize($fileName));
+            ob_clean();
+            flush();
+            readfile($fileName);
+        }
+        
+        $this->service->deleteTempCsvFile($filePath);
     }
     
     /**

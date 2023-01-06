@@ -2,6 +2,7 @@
 
 namespace Programm\App\Services;
 
+use Exception;
 use Programm\App\Models\FileTable;
 use Programm\App\Models\Model;
 use Programm\System\Database;
@@ -12,6 +13,8 @@ use Programm\System\Database;
 abstract class Service
 {
     protected Model $model;
+
+    const SEPARATOR = ';';
 
     /**
      * Push data to table
@@ -25,12 +28,12 @@ abstract class Service
         $tempName = $file['tmp_name'];
         $fileSize = $file['size'];
         $res = fopen($tempName, 'r+');
-        $columns = fgetcsv($res, $fileSize, ";");
+        $columns = fgetcsv($res, $fileSize, self::SEPARATOR);
 
         if ($columns === $this->model->columns) {
             $rows = $this->getCsvData($res, $fileSize);
             if ($this->model->putData($rows, $columns)) {
-                $this->pushLoadedFile($file['name']);
+                return $this->pushLoadedFile($file['name']);
             }
         }
 
@@ -38,7 +41,36 @@ abstract class Service
     }
     
     /**
-     * getData
+     * createCsvFile
+     *
+     * @return string
+     */
+    public function createTempCsvFile(): string
+    {
+        $data = $this->model->getAll();
+        $columns = $this->model->columns;
+        $filePath = __BASE_PATH . 'public/' . time() . $this->getTableName() . '.csv';
+        $file = fopen($filePath, 'wb');
+        fputcsv($file, $columns, self::SEPARATOR);
+        foreach ($data as $row) {
+            fputcsv($file, $row, self::SEPARATOR);
+        }
+        fclose($file);
+        return $filePath;
+    }
+
+    /**
+     * Delete Csv File
+     *
+     * @return void
+     */
+    public function deleteTempCsvFile(string $filePath): void
+    {
+        unlink($filePath);
+    }
+    
+    /**
+     * Get Data
      *
      * @return array
      */
@@ -87,10 +119,10 @@ abstract class Service
      * pushLoadedFile
      *
      * @param  string $fileName
-     * @return void
+     * @return bool
      */
-    private function pushLoadedFile(string $fileName): void
+    private function pushLoadedFile(string $fileName): bool
     {
-        Database::insert('files', 'NAME', '(\'' . $fileName . '\')');
+        return Database::insert('files', 'NAME', '(\'' . $fileName . '\')');
     }
 }

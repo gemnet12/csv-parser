@@ -53,3 +53,21 @@ Router::setRoute('show-files', [
     'controller' => AppController::class
 ]);
 
+Router::setRoute('download-employee', [
+    'url' => '/download-employee',
+    'action' => 'download',
+    'controller' => EmployeeController::class
+]);
+
+Router::setRoute('download-files', [
+    'url' => '/download-files',
+    'action' => 'download',
+    'controller' => AppController::class
+]);
+
+Router::setRoute('download-department', [
+    'url' => '/download-department',
+    'action' => 'download',
+    'controller' => DepartmentController::class
+]);
+
